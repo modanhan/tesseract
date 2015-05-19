@@ -71,6 +71,7 @@
   <ItemGroup>
     <ClInclude Include="glut.h" />
     <ClInclude Include="keyboard.h" />
+    <ClInclude Include="viewport.h" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="glut.lib" />
@@ -79,6 +80,7 @@
   <ItemGroup>
     <ClCompile Include="keyboard.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="viewport.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

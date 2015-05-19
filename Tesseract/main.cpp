@@ -2,9 +2,13 @@
 
 #include <Windows.h>
 
+
 #include "glut.h"
 
+#include <glm\glm.hpp>
+
 #include "keyboard.h"
+#include "viewport.h"
 
 using namespace std;
 
@@ -13,21 +17,28 @@ void init(void) {
 	glShadeModel(GL_FLAT);
 }
 
+int w = 720, h = 480;
+
+
 void display() {
-	
+
+	glViewport(0, 0, (GLsizei)aerobox::viewport_width, (GLsizei)aerobox::viewport_height);
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	gluPerspective(aerobox::fov,
+		(GLfloat)aerobox::viewport_width / (GLfloat)aerobox::viewport_height,
+		aerobox::viewport_near, aerobox::viewport_far);
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+	gluLookAt(aerobox::viewport_position[0], aerobox::viewport_position[1],
+		aerobox::viewport_position[2], aerobox::viewport_lookat[0], aerobox::viewport_lookat[1],
+		aerobox::viewport_lookat[2],
+		aerobox::viewport_up[0], aerobox::viewport_up[1], aerobox::viewport_up[2]);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	glColor4f(1, 1, 1, 1);
-	glutWireCube(1.0);
 
-	for (int i = 0; i < 256; i++) {
-		if (aerobox::key_pressed(i)) {
-			cout << (char)i << " pressed\n";
-		}
-		if (aerobox::key_released(i)) {
-			cout << (char)i << " released\n";
-		}
-	}
+	glutWireCube(1);
 
 	aerobox::keyboard_update();
 	glutPostRedisplay();
@@ -35,14 +46,8 @@ void display() {
 }
 
 void reshape(int w, int h) {
-	glViewport(0, 0, (GLsizei)w, (GLsizei)h);
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-	gluPerspective(60, (GLfloat)w / (GLfloat)h, 0.1, 20.0);
-	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
-	gluLookAt(4.0, 3.0, 5.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
-	glutPostRedisplay();
+	aerobox::viewport_width = w;
+	aerobox::viewport_height = h;
 }
 
 int main(int argc, char* argv[]) {

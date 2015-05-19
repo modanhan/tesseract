@@ -25,6 +25,9 @@
     <ClInclude Include="keyboard.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="viewport.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Library Include="glut.lib" />
@@ -35,6 +38,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="viewport.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
