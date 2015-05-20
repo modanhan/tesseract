@@ -9,6 +9,7 @@
 
 #include "keyboard.h"
 #include "viewport.h"
+#include "mouse.h"
 
 using namespace std;
 
@@ -38,9 +39,17 @@ void display() {
 
 	glColor4f(1, 1, 1, 1);
 
+	glPushMatrix();
+	glTranslatef(aerobox::gx,0,aerobox::gz);
 	glutWireCube(1);
+	glPopMatrix();
+
+	if (aerobox::button_released(2)){
+		cout << "hi\n";
+	}
 
 	aerobox::keyboard_update();
+	aerobox::mouse_update();
 	glutPostRedisplay();
 	glFlush();
 }
@@ -66,5 +75,6 @@ int main(int argc, char* argv[]) {
 
 	glutKeyboardFunc(aerobox::keyboard_func);
 	glutKeyboardUpFunc(aerobox::keyboard_up_func);
+	glutMouseFunc(aerobox::mouse_func);
 	glutMainLoop();
 }

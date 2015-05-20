@@ -71,6 +71,7 @@
   <ItemGroup>
     <ClInclude Include="glut.h" />
     <ClInclude Include="keyboard.h" />
+    <ClInclude Include="mouse.h" />
     <ClInclude Include="viewport.h" />
   </ItemGroup>
   <ItemGroup>
@@ -80,6 +81,7 @@
   <ItemGroup>
     <ClCompile Include="keyboard.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="mouse.cpp" />
     <ClCompile Include="viewport.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
