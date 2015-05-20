@@ -7,4 +7,5 @@ namespace aerobox {
 	void keyboard_update();
 	void keyboard_func(unsigned char key, int x, int y);
 	void keyboard_up_func(unsigned char key, int x, int y);
+	void calc_ray();
 }

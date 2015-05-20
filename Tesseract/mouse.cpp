@@ -11,6 +11,7 @@ namespace aerobox {
 
 	void calc_ray(int, int, int, int);
 
+	int mouse_x, mouse_y;
 	float gx = 0, gz = 0;
 
 	std::vector<bool> bd(3, 0), lbd(3, 0);
@@ -20,7 +21,6 @@ namespace aerobox {
 
 	void mouse_func(int key, int state, int x, int y) {
 		bd[key] = 1 - state;
-		calc_ray(key, state, x, y);
 	}
 
 	void mouse_update(){
@@ -39,7 +39,17 @@ namespace aerobox {
 		return (!bd[b]) && lbd[b];
 	}
 
-	void calc_ray(int key, int state, int x, int y){
+	void motion_func(int x, int y){
+		mouse_x = x;
+		mouse_y = y;
+	}
+
+	void passive_motion_func(int x, int y){
+		mouse_x = x;
+		mouse_y = y;
+	}
+
+	void calc_ray(){
 		glm::vec3 view = viewport_lookat - viewport_position;
 		view = glm::normalize(view);
 		glm::vec3 h = glm::cross(view, viewport_up);
@@ -52,7 +62,7 @@ namespace aerobox {
 		float hl = vl * (float)viewport_width / viewport_height;
 		h *= hl;
 		v *= vl;
-		float fx = x, fy = -y;
+		float fx = mouse_x, fy = -mouse_y;
 		fx -= viewport_width / 2;
 		fy += viewport_height / 2;
 		fx /= viewport_width / 2;

@@ -2,10 +2,9 @@
 
 #include <Windows.h>
 
-
 #include "glut.h"
 
-#include <glm\glm.hpp>
+#include "glm\glm.hpp"
 
 #include "keyboard.h"
 #include "viewport.h"
@@ -44,8 +43,8 @@ void display() {
 	glutWireCube(1);
 	glPopMatrix();
 
-	if (aerobox::button_released(2)){
-		cout << "hi\n";
+	if (aerobox::button_down(0)){
+		aerobox::calc_ray();
 	}
 
 	aerobox::keyboard_update();
@@ -76,5 +75,7 @@ int main(int argc, char* argv[]) {
 	glutKeyboardFunc(aerobox::keyboard_func);
 	glutKeyboardUpFunc(aerobox::keyboard_up_func);
 	glutMouseFunc(aerobox::mouse_func);
+	glutMotionFunc(aerobox::motion_func);
+	glutPassiveMotionFunc(aerobox::passive_motion_func);
 	glutMainLoop();
 }
