@@ -1,9 +1,6 @@
-#include "keyboard.h"
-
 #include <vector>
 
-#include "glut.h"
-#include <iostream>
+#include "aerobox.h"
 
 namespace aerobox {
 	std::vector<bool> kd(256, 0), lkd(256, 0);

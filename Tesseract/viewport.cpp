@@ -1,4 +1,4 @@
-#include "viewport.h"
+#include "aerobox.h"
 
 namespace aerobox {
 	glm::vec3 viewport_position(4,3,5), viewport_lookat(0,0,0), viewport_up(0,1,0);

@@ -1,14 +1,4 @@
-#include <iostream>
-
-#include <Windows.h>
-
-#include "glut.h"
-
-#include "glm\glm.hpp"
-
-#include "keyboard.h"
-#include "viewport.h"
-#include "mouse.h"
+#include "aerobox.h"
 
 using namespace std;
 
@@ -16,9 +6,6 @@ void init(void) {
 	glClearColor(0.0, 0.0, 0.0, 0.0);
 	glShadeModel(GL_FLAT);
 }
-
-int w = 720, h = 480;
-
 
 void display() {
 
