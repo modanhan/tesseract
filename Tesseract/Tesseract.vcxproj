@@ -69,6 +69,7 @@
     <None Include="glut32.dll" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="aerobox.h" />
     <ClInclude Include="glut.h" />
     <ClInclude Include="keyboard.h" />
     <ClInclude Include="mouse.h" />
