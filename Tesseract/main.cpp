@@ -8,7 +8,6 @@ void init(void) {
 }
 
 void display() {
-
 	glViewport(0, 0, (GLsizei)aerobox::viewport_width, (GLsizei)aerobox::viewport_height);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
@@ -26,13 +25,15 @@ void display() {
 	glColor4f(1, 1, 1, 1);
 
 	glPushMatrix();
-	glTranslatef(aerobox::gx,0,aerobox::gz);
-	glutWireCube(1);
+	glTranslatef(aerobox::gx,.5,aerobox::gz);
+	glutSolidCube(1);
 	glPopMatrix();
 
 	if (aerobox::button_down(0)){
 		aerobox::calc_ray();
 	}
+
+	aerobox::draw_y_grid(10, 1);
 
 	aerobox::keyboard_update();
 	aerobox::mouse_update();
