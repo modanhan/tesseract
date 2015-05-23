@@ -72,6 +72,7 @@
   <ItemGroup>
     <ClInclude Include="aerobox.h" />
     <ClInclude Include="glut.h" />
+    <ClInclude Include="tesseract.h" />
     <ClInclude Include="util.h" />
     <ClInclude Include="keyboard.h" />
     <ClInclude Include="mouse.h" />
@@ -85,6 +86,8 @@
     <ClCompile Include="keyboard.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mouse.cpp" />
+    <ClCompile Include="player.cpp" />
+    <ClCompile Include="tesseract.cpp" />
     <ClCompile Include="util.cpp" />
     <ClCompile Include="viewport.cpp" />
   </ItemGroup>

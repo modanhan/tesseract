@@ -9,7 +9,6 @@ namespace aerobox {
 	void calc_ray(int, int, int, int);
 
 	int mouse_x, mouse_y;
-	float gx = 0, gz = 0;
 
 	std::vector<bool> bd(3, 0), lbd(3, 0);
 
@@ -73,8 +72,5 @@ namespace aerobox {
 		ray_origin += v;
 
 		ray_dir = ray_origin - viewport_position;
-
-		gx = viewport_position[0] - ray_dir[0] * viewport_position[1] / ray_dir[1];
-		gz = viewport_position[2] - ray_dir[2] * viewport_position[1] / ray_dir[1];
 	}
 }

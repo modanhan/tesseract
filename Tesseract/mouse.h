@@ -3,9 +3,6 @@
 #include "glm\glm.hpp"
 
 namespace aerobox {
-	// will remove gx and gz
-	extern float gx, gz;
-
 	extern int mouse_x, mouse_y;
 	
 	extern glm::vec3 ray_origin;

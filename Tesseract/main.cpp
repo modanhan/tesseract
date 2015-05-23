@@ -1,10 +1,13 @@
 #include "aerobox.h"
+#include "tesseract.h"
 
 using namespace std;
 
 void init(void) {
 	glClearColor(0.0, 0.0, 0.0, 0.0);
 	glShadeModel(GL_FLAT);
+
+	tesseract::init();
 }
 
 void display() {
@@ -22,18 +25,9 @@ void display() {
 		aerobox::viewport_up[0], aerobox::viewport_up[1], aerobox::viewport_up[2]);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	glColor4f(1, 1, 1, 1);
+	aerobox::calc_ray();
 
-	glPushMatrix();
-	glTranslatef(aerobox::gx,.5,aerobox::gz);
-	glutSolidCube(1);
-	glPopMatrix();
-
-	if (aerobox::button_down(0)){
-		aerobox::calc_ray();
-	}
-
-	aerobox::draw_y_grid(10, 1);
+	tesseract::update();
 
 	aerobox::keyboard_update();
 	aerobox::mouse_update();
